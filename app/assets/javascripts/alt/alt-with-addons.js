@@ -2630,6 +2630,10 @@ function connectToStores(Component) {
       stores.forEach(function (store) {
         store.listen(_this.onChange);
       });
+
+      if (Component.componentDidConnect) {
+        Component.componentDidConnect(this.props);
+      }
     },
 
     componentWillUnmount: function componentWillUnmount() {
